@@ -41,6 +41,7 @@ class Snake:
         self._trainer = DoubleQNetworkTrainer(self._network, sess)
 
         self._summary_writer = tf.summary.FileWriter('stats/' + config.dir_name)
+        self.episode_rewards = []
         self._episode_count = 0
 
         self._radars_index = {
@@ -77,7 +78,7 @@ class Snake:
 
         print(ORIENTATION[ORIENTATION_ADJUSTER[self._orientation][int(a)]])
 
-        if hasattr(self, 'previous_state') and config.is_training:
+        if hasattr(self, '_previous_state') and config.is_training:
             self.log_statistics(reward, is_done)
             self._trainer.train_network(self._previous_state, self._previous_action, reward, self._state, is_done)
 
@@ -184,10 +185,13 @@ class Snake:
     def log_statistics(self, reward, is_done):
         if is_done:
             self._episode_count += 1
+            self.episode_rewards.append(reward)
 
             # Statistics
+            mean_reward = np.mean(self.episode_rewards[-5:])
+
             summary = tf.Summary()
-            summary.value.add(tag='Performance/Reward', simple_value=float(reward))
+            summary.value.add(tag='Performance/Reward', simple_value=float(mean_reward))
             self._summary_writer.add_summary(summary, self._episode_count)
 
             self._summary_writer.flush()

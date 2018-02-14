@@ -10,7 +10,7 @@ class ExperienceBuffer(object):
         return len(self._buffer)
 
     def add(self, experience):
-        if len(self) + len(experience) >= self.max_buffer_size:
+        if len(self) + len(experience) >= self._max_buffer_size:
             self._buffer[0:(len(experience) + len(self)) - self._max_buffer_size] = []
         self._buffer.extend(experience)
 
