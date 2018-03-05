@@ -1,6 +1,6 @@
-# battlesnake-python
-
 This snake made it to the semi-finals of a 750 person competition called BattleSnake 2018.
+
+# BattleSnake
 
 A simple [BattleSnake AI](http://battlesnake.io) written in Python. 
 
