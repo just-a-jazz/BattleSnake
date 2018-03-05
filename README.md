@@ -1,5 +1,7 @@
 # battlesnake-python
 
+This snake made it to the semi-finals of a 750 person competition called BattleSnake 2018.
+
 A simple [BattleSnake AI](http://battlesnake.io) written in Python. 
 
 Visit [battlesnake.io/readme](http://battlesnake.io/readme) for API documentation and instructions for running your AI.
