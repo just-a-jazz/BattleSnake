@@ -13,14 +13,13 @@ def static(path):
 def start():
     data = bottle.request.json
 
-    head_url = '{}://{}/static/head.png'.format(
-        bottle.request.urlparts.scheme,
-        bottle.request.urlparts.netloc
-    )
+    head_url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5aze3rPf_In2RQWTq0FspNhfEPljumfsiYXlJ5EUQD5UKZPR6'
 
     return {
-        'color': '#00FF00',
+        'color': '#000000',
         'taunt': 'Whew',
+        'head_type': 'fang',
+        'tail_type': 'curled',
         'head_url': head_url,
         'name': 'Root'
     }
@@ -45,5 +44,5 @@ if __name__ == '__main__':
     bottle.run(
         application,
         host=os.getenv('IP', '0.0.0.0'),
-        port=os.getenv('PORT', '8080'),
+        port=os.getenv('PORT', '6464'),
         debug = True)

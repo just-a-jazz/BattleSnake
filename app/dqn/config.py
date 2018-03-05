@@ -1,9 +1,9 @@
 load_model = True
 is_training = False
-dir_name = 'dqn-15distance-10nodes-gridrotated'
+dir_name = 'final-15distance-13nodes-gridrotated-variedfood-newhealth-foodratio'
 
 sight_distance = 15
-num_nodes = 10
+num_nodes = 13
 
 learning_rate = 1e-4
 discount_factor = 0.99
